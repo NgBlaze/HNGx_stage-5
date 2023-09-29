@@ -56,7 +56,7 @@ ROOT_URLCONF = "chrome_extension_backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -118,8 +118,18 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
 # Media URL
 MEDIA_URL = '/media/'
 
 # Media Root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Define the URL prefix for static files
+STATIC_URL = '/static/'
+
+# Define the absolute filesystem path to the directory that will hold your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Define the directory where Django will collect static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
